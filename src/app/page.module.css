@@ -1,0 +1,195 @@
+.hero {
+  min-height: 85vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: radial-gradient(circle at 50% 50%, rgba(255, 69, 0, 0.15) 0%, rgba(0,0,0,0) 50%);
+  padding: 4rem 1rem;
+  position: relative;
+  overflow: hidden;
+  border-bottom: 1px solid rgba(255, 69, 0, 0.2);
+}
+
+.particleContainer {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.particle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: #ff4500;
+  border-radius: 50%;
+  box-shadow: 0 0 10px #ff4500, 0 0 20px #ff4500;
+  animation: floatParticles 8s infinite linear;
+}
+
+.particle:nth-child(1) { left: 10%; animation-duration: 6s; animation-delay: 0s; width: 3px; height: 3px; }
+.particle:nth-child(2) { left: 30%; animation-duration: 9s; animation-delay: 2s; width: 5px; height: 5px; box-shadow: 0 0 15px #ff6a00; background: #ff6a00; }
+.particle:nth-child(3) { left: 50%; animation-duration: 7s; animation-delay: 1s; }
+.particle:nth-child(4) { left: 70%; animation-duration: 11s; animation-delay: 4s; width: 2px; height: 2px; }
+.particle:nth-child(5) { left: 90%; animation-duration: 8s; animation-delay: 3s; }
+/* Adding more particles for a denser spark effect */
+.particle:nth-child(6) { left: 20%; animation-duration: 7.5s; animation-delay: 1.5s; }
+.particle:nth-child(7) { left: 40%; animation-duration: 10s; animation-delay: 0.5s; background: #ff6a00; }
+.particle:nth-child(8) { left: 60%; animation-duration: 6.5s; animation-delay: 2.5s; width: 6px; height: 6px; }
+.particle:nth-child(9) { left: 80%; animation-duration: 9.5s; animation-delay: 1.8s; }
+.particle:nth-child(10) { left: 15%; animation-duration: 8.2s; animation-delay: 3.2s; }
+.particle:nth-child(11) { left: 45%; animation-duration: 6.8s; animation-delay: 0.8s; }
+.particle:nth-child(12) { left: 85%; animation-duration: 10.5s; animation-delay: 4.5s; }
+
+
+.heroContent {
+  max-width: 900px;
+  position: relative;
+  z-index: 2;
+}
+
+.heroTitle {
+  font-size: 5rem;
+  font-weight: 800;
+  margin-bottom: 1.5rem;
+  line-height: 1.1;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  text-shadow: 0 0 30px rgba(255, 69, 0, 0.6);
+}
+
+.highlight {
+  color: var(--primary-orange);
+  position: relative;
+  display: inline-block;
+}
+
+.highlight::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; width: 100%; height: 4px;
+  background: var(--primary-orange);
+  box-shadow: 0 0 10px var(--primary-orange);
+}
+
+.heroSubtitle {
+  font-size: 1.35rem;
+  color: var(--text-secondary);
+  margin-bottom: 3rem;
+  line-height: 1.6;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.heroActions {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+}
+
+/* Sections */
+.section {
+  padding: 8rem 0;
+  position: relative;
+}
+
+.sectionBg {
+  background-color: var(--bg-color-secondary);
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  position: relative;
+}
+
+.sectionBg::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: linear-gradient(180deg, rgba(255,69,0,0.02) 0%, transparent 100%);
+  pointer-events: none;
+}
+
+.gridCards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  margin-top: 4rem;
+}
+
+.categoryCard {
+  background: var(--bg-glass);
+  padding: 3rem 2rem;
+  border-radius: 8px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+  border: 1px solid var(--border-color);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.categoryCard::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 4px;
+  background: transparent;
+  transition: background 0.4s ease;
+}
+
+.categoryCard:hover {
+  transform: translateY(-15px);
+  box-shadow: 0 15px 40px rgba(255, 69, 0, 0.2);
+  border-color: rgba(255, 69, 0, 0.3);
+  background: rgba(20, 20, 25, 0.9);
+}
+
+.categoryCard:hover::before {
+  background: linear-gradient(90deg, var(--primary-orange), #ff6a00);
+  box-shadow: 0 0 15px var(--primary-orange);
+}
+
+.iconWrapper {
+  color: var(--primary-orange);
+  transition: transform 0.4s ease, filter 0.4s ease;
+}
+
+.categoryCard:hover .iconWrapper {
+  transform: scale(1.2);
+  filter: drop-shadow(0 0 10px var(--primary-orange));
+}
+
+.categoryTitle {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+@media (max-width: 1024px) {
+  .heroTitle {
+    font-size: 4rem;
+  }
+  .gridCards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .heroTitle {
+    font-size: 2.8rem;
+  }
+  .heroActions {
+    flex-direction: column;
+  }
+  .gridCards {
+    grid-template-columns: 1fr;
+  }
+}

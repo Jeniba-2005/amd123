@@ -1,0 +1,215 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--bg-glass);
+  border-radius: var(--radius);
+  border: 1px solid var(--border-color);
+  overflow: hidden;
+  transition: var(--transition);
+  position: relative;
+  height: 100%;
+  backdrop-filter: blur(10px);
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 2px;
+  background: transparent;
+  transition: background 0.4s ease;
+  z-index: 10;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.8), 0 0 15px rgba(255,69,0,0.1);
+  border-color: rgba(255, 69, 0, 0.4);
+}
+
+.card:hover::before {
+  background: linear-gradient(90deg, var(--primary-orange), #ff6a00);
+  box-shadow: 0 0 10px var(--primary-orange);
+}
+
+.imageContainer {
+  width: 100%;
+  aspect-ratio: 4/3;
+  background-color: #050508;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.image {
+  object-fit: cover;
+  transition: transform 0.5s cubic-bezier(0.19, 1, 0.22, 1), filter 0.5s ease;
+  width: 100%;
+  height: 100%;
+  filter: brightness(0.9);
+}
+
+.card:hover .image {
+  transform: scale(1.05);
+  filter: brightness(1.1);
+}
+
+.tag {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  background: var(--success-color);
+  color: #000;
+  padding: 0.25rem 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  border-radius: 4px;
+  z-index: 2;
+  box-shadow: 0 0 10px var(--success-color);
+}
+
+.stockBadge {
+  position: absolute;
+  bottom: 0.75rem;
+  left: 0.75rem;
+  padding: 0.2rem 0.5rem;
+  font-size: 0.65rem;
+  font-weight: 700;
+  border-radius: 4px;
+  z-index: 2;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  backdrop-filter: blur(4px);
+}
+
+.inStock {
+  background: rgba(0, 255, 102, 0.1);
+  color: var(--success-color);
+  border: 1px solid rgba(0, 255, 102, 0.3);
+}
+
+.lowStock {
+  background: rgba(255, 106, 0, 0.1);
+  color: var(--primary-orange);
+  border: 1px solid rgba(255, 106, 0, 0.3);
+  animation: pulse 1.5s infinite;
+}
+
+.outOfStock {
+  background: rgba(255, 0, 51, 0.1);
+  color: var(--error-color);
+  border: 1px solid rgba(255, 0, 51, 0.3);
+}
+
+@keyframes pulse {
+  0% { opacity: 0.6; }
+  50% { opacity: 1; }
+  100% { opacity: 0.6; }
+}
+
+.wishlistBtn {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: rgba(0,0,0,0.5);
+  border: 1px solid rgba(255,255,255,0.1);
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+  color: var(--text-secondary);
+  transition: var(--transition);
+  z-index: 2;
+  backdrop-filter: blur(4px);
+}
+
+.wishlistBtn:hover {
+  color: var(--error-color);
+  transform: scale(1.1);
+  border-color: var(--error-color);
+  box-shadow: 0 0 10px rgba(255,0,51,0.5);
+}
+
+.wishlistBtn.active {
+  color: var(--error-color);
+  filter: drop-shadow(0 0 5px var(--error-color));
+}
+
+.content {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.category {
+  font-size: 0.75rem;
+  color: var(--primary-orange);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+  line-height: 1.4;
+  flex-grow: 1;
+}
+
+.rating {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  color: var(--primary-orange);
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+.ratingCount {
+  color: var(--text-secondary);
+  margin-left: 0.25rem;
+  font-size: 0.8rem;
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: auto;
+}
+
+.price {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #fff;
+  text-shadow: 0 0 10px rgba(255,255,255,0.2);
+}
+
+.addBtn {
+  background: transparent;
+  border: 1px solid var(--primary-orange);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--primary-orange);
+  transition: var(--transition);
+}
+
+.addBtn:hover {
+  background: var(--primary-orange);
+  color: white;
+  box-shadow: 0 0 15px var(--primary-orange-glow);
+}
