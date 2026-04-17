@@ -22,6 +22,7 @@ export default function RootLayout({
           <Navbar />
           <main style={{ flex: 1, position: 'relative', zIndex: 1 }}>{children}</main>
           <Footer />
+          <ChatBot />
         </Providers>
       </body>
     </html>

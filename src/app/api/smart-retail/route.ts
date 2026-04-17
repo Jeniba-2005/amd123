@@ -42,6 +42,9 @@ export async function POST(request: Request) {
     case 'calculate_totals':
       return NextResponse.json(SmartEngine.calculateTotals(payload.items));
     
+    case 'recommendations':
+      return NextResponse.json(SmartEngine.getRecommendations(payload.categories, payload.ids));
+    
     case 'simulate_order':
       // Automation Simulation: In a real app, this would update DB.
       // Here we simulate the automated status progression.

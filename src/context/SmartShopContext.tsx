@@ -55,9 +55,11 @@ export const SmartShopProvider = ({ children }: { children: ReactNode }) => {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ 
-                    type: 'recommendations', 
-                    ids: historyIds, 
-                    categories: categories 
+                    action: 'recommendations', 
+                    payload: {
+                        ids: historyIds, 
+                        categories: categories 
+                    }
                 })
             });
             const data = await resp.json();

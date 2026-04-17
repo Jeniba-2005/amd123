@@ -15,7 +15,7 @@ export default function ChatBot() {
   const { recentlyViewed } = useSmartShop();
 
   const [messages, setMessages] = useState([
-    { role: 'bot', content: "Protocol Initialized. I'm Sphere-AI. System optimized for your retail experience. How can I assist?", type: 'text' }
+    { role: 'bot', content: "Hello! I'm Sphere-AI, your friendly shopping assistant. ✨ I'm here to help you find the best tech and gear. What are we looking for today? 🤖", type: 'text' }
   ]);
   const [input, setInput] = useState('');
   const messagesEndRef = useRef<HTMLDivElement>(null);

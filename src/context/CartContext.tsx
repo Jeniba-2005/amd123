@@ -66,14 +66,14 @@ export function CartProvider({ children }: { children: ReactNode }) {
     setItems((prev) => {
       const existingItem = prev.find((item) => item.id === product.id);
       if (existingItem) {
-        showToast(`Increased amount of ${product.name} in cart`, 'success');
         return prev.map((item) =>
           item.id === product.id ? { ...item, quantity: item.quantity + 1 } : item
         );
       }
-      showToast(`Added ${product.name} to cart`, 'success');
       return [...prev, { ...product, quantity: 1 }];
     });
+    // Call showToast outside of the state updater function to avoid React warnings
+    showToast(`Added ${product.name} to cart`, 'success');
   }, [showToast]);
 
   const removeFromCart = useCallback((productId: string) => {
